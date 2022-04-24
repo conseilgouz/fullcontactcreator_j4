@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="plugin" group="user" method="upgrade">
+	<name>plg_user_fullcontactcreator</name>
+	<author>ConseilGouz</author>
+	<creationDate>October 2021</creationDate>
+	<author>ConseilGouz</author>
+	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
+	<authorUrl>https://www.conseilgouz.com</authorUrl>
+	<copyright>(C)2021 ConseilGouz. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<version>2.0.0</version>
+	<description>PLG_FULLCONTACTCREATOR_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="fullcontactcreator">fullcontactcreator.php</filename>
+	</files>
+	<languages folder="language" >
+		<language tag="en-GB">en-GB/plg_user_fullcontactcreator.ini</language>
+		<language tag="en-GB">en-GB/plg_user_fullcontactcreator.sys.ini</language>
+		<language tag="fr-FR">fr-FR/plg_user_fullcontactcreator.ini</language>
+		<language tag="fr-FR">fr-FR/plg_user_fullcontactcreator.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			
+				<field
+					name="category"
+					type="category"
+					label="JCATEGORY"
+					description="PLG_FULLCONTACTCREATOR_FIELD_CATEGORY_DESC"
+					extension="com_contact"
+				/>
+				<field
+					name="autopublish"
+					type="radio"
+					label="PLG_FULLCONTACTCREATOR_FIELD_AUTOPUBLISH_LABEL"
+					description="PLG_FULLCONTACTCREATOR_FIELD_AUTOPUBLISH_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="fieldsauto"
+					type="radio"
+					label="PLG_FULLCONTACTCREATOR_FIELDS_AUTO_LABEL"
+					description="PLG_FULLCONTACTCREATOR_FIELDS_AUTO_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+				    showon="fieldsauto:1"
+					name="fields"
+					type="sql"
+					label="PLG_FULLCONTACTCREATOR_FIELDS_USER_CONTATC_LABEL"
+					description="PLG_FULLCONTACTCREATOR_USER_CONTACT_DESC"
+					query="select f.id as id, concat(f.title,' -> ',f2.title) as value from #__fields f join #__fields f2 on f.note = f2.note and f2.context = 'com_contact.contact'
+							where f.context = 'com_users.user' and f.state > 0 and f2.state > 0"
+					key_field="id"
+					value_field="value"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+  <updateservers>
+    <server type="extension" name="fullcontactcreator" priority="1">https://www.conseilgouz.com/updates/fullcontactcreator_update.xml</server>
+   </updateservers>
+	
+</extension>
