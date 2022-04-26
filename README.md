@@ -3,6 +3,8 @@ Full Contact Creator creates contacts at user registration. It fills up addition
 
 Like Joomla Contact Creator standard plugin, Full Contact Creator creates contacts in Contact_Details table, automatically filling name, username, userid and email fields. It also extracts profile data: address, zipcode, city, country, phone, website and preferred book.
 
+With ProfileP Plugin, you may enter user position while registering. This new field will be copied to its contact equivalent.
+
 To work, you'll have to create a link between user fileds and contact fields. This is done through Note field: a user field is copied as contact field if they both contain the same value in their own note field.
 
 Make it work...
