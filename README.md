@@ -15,3 +15,5 @@ Important: to work, you'll be required to
 - check plugins order so that ProfileP Plugin will be before Full Contact Creator and Full Contact Creator Plugin will be after Profile plugin,
 
 - enable Full Contact Creator plugin and ProfileP plugin, of course....
+
+Check https://www.conseilgouz.com/full-contact-creator
